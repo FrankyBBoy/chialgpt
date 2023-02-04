@@ -35,9 +35,14 @@ export class AppComponent implements OnInit{
       text: this.question
     })
 
+    this.scrollToBottom();
+
     this.question = "";
 
     this.sendRandomAnswer();
+
+    this.scrollToBottom();
+
   }
 
   sendAnswer(answer: string) {
@@ -62,14 +67,18 @@ export class AppComponent implements OnInit{
 
     return randomAnswer;
   }
+
+  scrollToBottom() {
+    setTimeout(() => {
+      window.scrollTo(0,document.body.scrollHeight);
+    }, 50);
+  }
 }
 
 /*
 TODO
-- ajouter le forms submit pour envoyé le msg sur le enter
 - faire une liste random de message d'acceuil
 - ajouter animation réflexion
 - ajouter animation écriture du texte
-- Consommer les message random pour ne pas avoir le même 2 fois
-- mettre un message finale si tous les message son consommer
+- focus toujours sur input
 */
