@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
+  @ViewChild('questionInput') questionInputRef!: ElementRef;
+
   question = "";
 
   list_question_answer: any[] = [];
+
+  is_typing: boolean = false;
 
   private answers_list: string[] = [
     "Ah ta yeule",
@@ -23,7 +27,7 @@ export class AppComponent implements OnInit{
   ]
 
   ngOnInit(): void {
-    this.sendAnswer('Que puis-je pour toi mon cabochon?');
+    this.writeAnswer('Que puis-je pour toi mon cabochon?');
   }
 
   sendQuestion() {
@@ -39,21 +43,31 @@ export class AppComponent implements OnInit{
 
     this.question = "";
 
-    this.sendRandomAnswer();
+    this.writeRandomAnswer();
 
     this.scrollToBottom();
-
   }
 
-  sendAnswer(answer: string) {
+  async writeAnswer(answer: string) {
+    this.is_typing = true;
+
     this.list_question_answer.push({
       type: 'ANSWER',
-      text: answer
+      text: ""
     });
+
+    for (let i = 0; i < answer.length; i++) {
+      await this.delay(50);
+      this.list_question_answer.at(this.list_question_answer.length-1).text += answer.at(i);
+    }
+
+    this.is_typing = false;
+
+    this.focusToQuestionInput();
   }
 
-  sendRandomAnswer() {
-    this.sendAnswer(this.consumeRandomAnswer())
+  writeRandomAnswer() {
+    this.writeAnswer(this.consumeRandomAnswer())
   }
 
   consumeRandomAnswer(): string {
@@ -68,17 +82,24 @@ export class AppComponent implements OnInit{
     return randomAnswer;
   }
 
-  scrollToBottom() {
+  private focusToQuestionInput() {
+    setTimeout(() => {
+      this.questionInputRef.nativeElement.focus();
+    }, 0);
+  }
+
+  private scrollToBottom() {
     setTimeout(() => {
       window.scrollTo(0,document.body.scrollHeight);
-    }, 50);
+    }, 0);
+  }
+
+  private delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 }
 
 /*
 TODO
 - faire une liste random de message d'acceuil
-- ajouter animation réflexion
-- ajouter animation écriture du texte
-- focus toujours sur input
 */

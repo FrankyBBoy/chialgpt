@@ -87,4 +87,13 @@
   &:active {
     background-color: #bddfeb;
   }
+
+  &:disabled {
+    cursor: auto;
+    background-color: #9fd1e2;
+  }
+}
+
+.x-logo {
+  font-size: 1.5rem;
 }

@@ -5,7 +5,7 @@
     <div class="qa-container">
       <div class="qa-container__logo">
         <img *ngIf="qa_item.type == 'ANSWER'" src="./../assets/images/SL.png" alt="chialeux">
-        <div *ngIf="qa_item.type == 'QUESTION'">X</div>
+        <div *ngIf="qa_item.type == 'QUESTION'" class="x-logo">X</div>
       </div>
       <div class="qa-container__text">{{ qa_item.text }}</div>
     </div>
@@ -13,8 +13,8 @@
 
   <div class="sticky-footer">
     <form (ngSubmit)="sendQuestion()" class="form-container">
-      <input type="text" [(ngModel)]="question" [ngModelOptions]="{standalone: true}">
-      <button class="send-button" type="submit">Send</button>
+      <input #questionInput type="text" [(ngModel)]="question" [ngModelOptions]="{standalone: true}" [disabled]="is_typing">
+      <button class="send-button" type="submit" [disabled]="is_typing">Send</button>
     </form>
   </div>
 </div>
