@@ -1,58 +1,21 @@
 <div class="main-container">
-  <div class="qa-row qa-row--question">
+  <div *ngFor="let qa_item of list_question_answer" class="qa-row"
+       [ngClass]="{'qa-row--answer': qa_item.type == 'ANSWER',
+                   'qa-row--question': qa_item.type == 'QUESTION'}">
     <div class="qa-container">
       <div class="qa-container__logo">
-        <div>X</div>
+        <img *ngIf="qa_item.type == 'ANSWER'" src="./../assets/images/SL.png" alt="chialeux">
+        <div *ngIf="qa_item.type == 'QUESTION'">X</div>
       </div>
-      <div class="qa-container__text">Ceci est une question?</div>
-    </div>
-  </div>
-  <div class="qa-row qa-row--answer">
-    <div class="qa-container">
-      <div class="qa-container__logo">
-        <img src="./../assets/images/SL.png" alt="chialeux">
-      </div>
-      <div class="qa-container__text">Ceci est une réponse</div>
-    </div>
-  </div>
-  <div class="qa-row qa-row--question">
-    <div class="qa-container">
-      <div class="qa-container__logo">
-        <div>X</div>
-      </div>
-      <div class="qa-container__text">Ceci est une question?</div>
-    </div>
-  </div>
-  <div class="qa-row qa-row--answer">
-    <div class="qa-container">
-      <div class="qa-container__logo">
-        <img src="./../assets/images/SL.png" alt="chialeux">
-      </div>
-      <div class="qa-container__text">Ceci est une réponse</div>
-    </div>
-  </div>
-  <div class="qa-row qa-row--question">
-    <div class="qa-container">
-      <div class="qa-container__logo">
-        <div>X</div>
-      </div>
-      <div class="qa-container__text">Ceci est une question?</div>
-    </div>
-  </div>
-  <div class="qa-row qa-row--answer">
-    <div class="qa-container">
-      <div class="qa-container__logo">
-        <img src="./../assets/images/SL.png" alt="chialeux">
-      </div>
-      <div class="qa-container__text">Ceci est une réponse</div>
+      <div class="qa-container__text">{{ qa_item.text }}</div>
     </div>
   </div>
 
   <div class="sticky-footer">
-    <div class="form-container">
-      <input type="text">
-      <a class="send-button">Send</a>
-    </div>
+    <form (ngSubmit)="sendQuestion()" class="form-container">
+      <input type="text" [(ngModel)]="question" [ngModelOptions]="{standalone: true}">
+      <button class="send-button" type="submit">Send</button>
+    </form>
   </div>
 </div>
 
