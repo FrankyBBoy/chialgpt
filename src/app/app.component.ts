@@ -23,7 +23,21 @@ export class AppComponent implements OnInit{
     "Tu dois pas être bin bin en demande à ta job.",
     "Ferai pas ta job à ta place maudit lâche",
     "Fait tes recherches toi même osti de cornet.",
-    "C'est toi le problème"
+    "C'est toi le problème",
+    "Au lieu de poser des questions va donc te faire rembourser tes pitas rances",
+    "Au lieu de poser des questions va donc checker si tes peanuts sont rances",
+    "T'es pas la peanut la moins rance du sac",
+    "Trop compliqué, va donc demander à Annie",
+    "J'yé po touché à plotte.",
+    ".........Quel imbécile... Oh my GIG!",
+    "M'a te répondre mais avant va demander à Nicole comment faire un REN4",
+    "Ta yeule enlève ta chemise",
+    "Caliss! Annie a ENCORE pesée 2 fois sul piton!",
+    "Ta yeule y'a pas de viande dans ton subway!",
+    "Ta yeule man té banned!",
+    "Tu sais écrire?",
+    "Banane",
+    "Ça, c'est vraiment un gros tas de merde"
   ]
 
   ngOnInit(): void {
