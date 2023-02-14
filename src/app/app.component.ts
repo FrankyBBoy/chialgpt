@@ -37,7 +37,9 @@ export class AppComponent implements OnInit{
     "Ta yeule man té banned!",
     "Tu sais écrire?",
     "Banane",
-    "Ça, c'est vraiment un gros tas de merde"
+    "Ça, c'est vraiment un gros tas de merde",
+    "Toi c’est clair que t’es un chargé de projets",
+    "Addj veld dkd sjd’ dkfhdfagsfsksk"
   ]
 
   ngOnInit(): void {
