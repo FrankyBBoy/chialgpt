@@ -39,7 +39,11 @@ export class AppComponent implements OnInit{
     "Banane",
     "Ça, c'est vraiment un gros tas de merde",
     "Toi c’est clair que t’es un chargé de projets",
-    "Addj veld dkd sjd’ dkfhdfagsfsksk"
+    "Addj veld dkd sjd’ dkfhdfagsfsksk",
+    "Ta question est aussi pertinente qu'une diarrhée explosive",
+    "Demande donc à ton chum Milhouse",
+    "As-tu checké le DF??? Me semble c'Est clair!!! lkdsj-adflkjda-kjeaed-jdas",
+    "... crétin"
   ]
 
   ngOnInit(): void {
