@@ -43,7 +43,10 @@ export class AppComponent implements OnInit{
     "Ta question est aussi pertinente qu'une diarrhée explosive",
     "Demande donc à ton chum Milhouse",
     "As-tu checké le DF??? Me semble c'Est clair!!! lkdsj-adflkjda-kjeaed-jdas",
-    "... crétin"
+    "... crétin",
+    "T'es aussi désirable que le sida!",
+    "Ouvre moé un JIRA!",
+    "Meilleur gars!"
   ]
 
   ngOnInit(): void {
